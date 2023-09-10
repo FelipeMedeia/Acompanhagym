@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title> AcompanhaGym </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../static/usuarios/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav class="menu">
+        <a href="./"> AcompanhaGym</a>
+    </nav>
+    </header>
+    <div class="corpo">
+        <div class="logo">
+            <img src= "../media/logo/Ellipse 1.png " height="450" width="450">
+        </div>
+
+        <div class="dados">
+            <form method="POST" action="{% url 'cadastro' %}">{% csrf_token %}
+                <input class="barra" type="text" placeholder="Digite seu nome" name="nome" required>
+                 <br>
+                 <br>
+                <input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" required>
+                 <br>
+                 <br>
+                 <input class="barra" type="password" placeholder="Digite sua senha" name="senha" required>
+                 <br>
+                 <br>
+                 <button class="confirma">Cadastrar</button>
+                    <br>
+                    <br>
+            </form>
+        </div>
+    </div>
+
+
+
+    {% for message in messages%}
+            <div >
+                <strong class="alert">Error!</strong>{{message}}
+            </div>
+    {%endfor%}
+
+    </div>
+
+</body>
+</html>
