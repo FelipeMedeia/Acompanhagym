@@ -1,0 +1,79 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.logo{
+    flex-shrink: 0;
+    position: relative;
+    top:95px;
+    right:250px;
+}
+.menu{
+    width: 100%;
+    height: 70px;
+    flex-shrink: 0;
+    background: #0803B4;
+
+}
+.corpo{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+body{
+    justify-content: center;
+    background-color: gray;
+
+}
+.menu a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 12px;
+}
+.dados{
+    width: 350px;
+    height: 350px;
+    border-radius: 50px;
+    background: #DD8E15;
+    position: relative;
+    text-align: center;
+    top:95px;
+    left:150px;
+
+}
+.barra{
+    width: 200px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #fff;
+    justify-content: center;
+    padding: 5px;
+    
+
+}
+.confirma{
+    width: 230px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #190ADF;
+    color: #fff;
+}
+.confirma:hover{
+            background-color: #0190AF;
+            cursor: pointer;
+            color: white;
+}
+.alert{
+            position: absolute;
+            color: red;
+            top: 80%;
+            left: 49%;
+}
