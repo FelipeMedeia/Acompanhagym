@@ -2,9 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-
 # Create your views here.
-
 
 def cadastro(request):
     if request.method == "GET":
@@ -25,3 +23,5 @@ def cadastro(request):
             user.save()
             messages.success(request, 'Usuário cadastrado com sucesso!!')
             return redirect('cadastro')
+
+
