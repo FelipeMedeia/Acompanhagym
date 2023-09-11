@@ -32,6 +32,3 @@ class Test_usuarios(TestCase):
         response.redirect_chain
         self.assertEqual(response.status_code, 200)
 
-
-
-
