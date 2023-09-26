@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
+from . import views
 
 
 
@@ -17,7 +18,6 @@ class Test_usuarios(TestCase):
         response = c.post("/cadastro/", {"nome": "Teste", "email": "teste@teste.com", "senha": "1234"}, follow=True)
         response.status_code
 
-
     def test_se_porta_200(self):
         c = Client()
 
@@ -31,4 +31,15 @@ class Test_usuarios(TestCase):
                                     {'nome': 'Teste', 'email': 'teste@teste.com', 'senha': '1234'}, follow=True)
         response.redirect_chain
         self.assertEqual(response.status_code, 200)
+
+    def Test_cadastro_usuario_nome(self):
+        c = Client()
+        response = c.views.cadastro.post({'nome': 'Teste', 'email': 'teste@teste.com', 'senha': '1234'})
+        response.content
+
+        self.assertEqual(response, {'nome': 'Teste', 'email': 'teste@teste.com', 'senha': '1234'})
+
+
+
+
 
