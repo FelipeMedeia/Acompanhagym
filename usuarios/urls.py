@@ -6,6 +6,6 @@ urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('home/', views.home, name='homepage'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('login/', views.login, name='login'),
+    #path('login/', views.login, name='login'),
 
 ]
