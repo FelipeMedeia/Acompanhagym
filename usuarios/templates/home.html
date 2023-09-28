@@ -1,0 +1,22 @@
+{% extends './static/usuarios/html/base_interna.html'%}
+{% load static %}
+
+{% block content%}
+
+    <div class="box">
+
+        <div>
+            <a class="titulo">Lista Users</a>
+            <a class="adiciona" href="#"> Adicionar Novo</a>
+        </div>
+        <div class="users">
+
+        </div>
+
+    </div>
+    <div>
+        <a class="saudacao">Olá {{ user.username }}, seja bem vindo(a)! </a>
+    </div>
+
+
+{% endblock%}
