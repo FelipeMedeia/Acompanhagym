@@ -37,8 +37,8 @@ body{
     height: 140px;
     flex-shrink: 0;
     position: absolute;
-    top: 43.25px;
-    left: center;
+    top: 65px;
+    left: auto;
     display: flex;
     align-items: center;
     justify-content: center;

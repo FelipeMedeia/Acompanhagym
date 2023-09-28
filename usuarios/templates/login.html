@@ -4,22 +4,19 @@
 {%block title%} Cadastre-se {% endblock title%}
 
 {%block content%}
-<form method="POST" action="{% url 'cadastro' %}">{% csrf_token %}
-    <title>Cadastre-se</title>
+<form method="POST" action="{% url 'login' %}">{% csrf_token %}
+    <title>Login</title>
     <input class="barra" type="text" placeholder="Digite seu nome" name="nome" required>
-    <br>
-    <br>
-    <input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" required>
     <br>
     <br>
     <input class="barra" type="password" placeholder="Digite sua senha" name="senha" required>
     <br>
     <br>
-    <button class="confirma">Cadastrar</button>
+    <button class="confirma">Logar</button>
     <br>
     <br>
     <br>
-    <h1 class="texto"> Já tem uma conta? <a href="{% url 'login'%}">Login</a></h1>
+    <h1 class="texto"> Ainda não tem uma conta? <a href="{% url 'cadastro'%}">Cadastre-se</a></h1>
     <br>
     {% for message in messages%}
         <div class="alert" >
@@ -30,4 +27,3 @@
 </form>
 
 {% endblock %}
-
