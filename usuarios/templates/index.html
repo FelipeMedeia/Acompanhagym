@@ -1,0 +1,27 @@
+{% extends './static/usuarios/html/index_base.html'%}
+
+{% block content%}
+
+
+    <div class="caixa">
+        <h1>Personal</h1>
+        <a class="link" href="{% url 'login'%}">Login</a>
+        <br>
+        <br>
+        <a class="linkc" href="{% url 'cadastro'%}">Cadastro</a>
+
+
+    </div>
+    <div class="elipseI">
+        <div class="logo">
+            <a href="./"> <img src= "../media/logo/Ellipse 1.png " height="230" width="230"> </a>
+
+        </div>
+
+    </div>
+    <div class="caixa">
+        <h1>User</h1>
+        <a class="link" href="#">Login</a>
+
+    </div>
+{% endblock%}
