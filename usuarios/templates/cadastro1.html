@@ -1,0 +1,33 @@
+{% extends './static/usuarios/html/base.html'%}
+{% load static %}
+
+{%block title%} Cadastre-se {% endblock title%}
+
+{%block content%}
+<form method="POST" action="{% url 'cadastro' %}">{% csrf_token %}
+    <title>Cadastre-se</title>
+    <input class="barra" type="text" placeholder="Digite seu nome" name="nome" required>
+    <br>
+    <br>
+    <input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" required>
+    <br>
+    <br>
+    <input class="barra" type="password" placeholder="Digite sua senha" name="senha" required>
+    <br>
+    <br>
+    <button class="confirma">Cadastrar</button>
+    <br>
+    <br>
+    <br>
+    <h1 class="texto"> Já tem uma conta? <a href="{% url 'login'%}">Login</a></h1>
+    <br>
+    {% for message in messages%}
+        <div class="alert" >
+            <strong >Error!</strong>{{message}}
+        </div>
+    {%endfor%}
+
+</form>
+
+{% endblock %}
+
