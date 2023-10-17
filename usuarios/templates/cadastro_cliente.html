@@ -1,0 +1,37 @@
+{% extends './static/usuarios/html/base_interna.html'%}
+{% load static %}
+
+{%block content%}
+    <div class="box">
+        <form method="POST" action="{% url 'cadastro_cliente' %}">{% csrf_token %}
+             <a> Nome: </a><input class="barra" type="text" placeholder="Digite o nome" name="nome" required>
+            <br>
+            <br>
+            <a> Email: </a><input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" required>
+            <br>
+            <br>
+            <a> Data de Nascimento: </a><input class="barra" type="date" name="data_nascimento" required>
+            <br>
+            <br>
+            <a> Endereço: </a><input class="barra" type="text" placeholder="Digite o Endereço" name="endereco" required>
+            <br>
+            <br>
+            <a> Peso: </a><input class="metria" type="text" placeholder="Ex.: 50.4" name="peso" required>
+            <br>
+            <a> Altura: </a><input class="metria" type="text" placeholder="Ex.: 123" name="altura" required>
+            <br>
+            <br>
+            <button class="confirma">Cadastrar</button>
+            <br>
+            <br>
+            <button class="volta"><a href="{% url 'homepage'%}"> Voltar</a></button>
+            {% for message in messages%}
+                <div class="alert" >
+                    <strong >Error!</strong>{{message}}
+                </div>
+            {%endfor%}
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends './static/usuarios/html/base_interna.html'%}
+{% load static %}
+
+{% block content%}
+
+    <div class="box">
+        <button><a href="{% url 'homepage'%}">Voltar</a></button>
+        <a>Braço: <select class="barra" name="braco">
+                 <option value="" disabled selected >Treino Braço</option>
+                 <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
+                 <option value="3 séries, 12 repetições" >3 séries, 12 repetições</option>
+                 <option value="3 séries, 15 repetições" >3 séries, 15 repetições</option>
+                 <option value="4 séries, 8 repetições" >4 séries, 8 repetições</option>
+                 <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
+                 <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
+        </select> </a>
+        <a>Perna: <select class="barra" name="perna" required>
+                 <option value="" disabled selected >Treino Perna</option>
+                 <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
+                 <option value="3 séries, 12 repetições" >3 séries, 12 repetições</option>
+                 <option value="3 séries, 15 repetições" >3 séries, 15 repetições</option>
+                 <option value="4 séries, 8 repetições" >4 séries, 8 repetições</option>
+                 <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
+                 <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
+        </select> </a>
+        <a>Peito: <select class="barra" name="perna" required>
+                 <option value="" disabled selected >Treino Peito</option>
+                 <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
+                 <option value="3 séries, 12 repetições" >3 séries, 12 repetições</option>
+                 <option value="3 séries, 15 repetições" >3 séries, 15 repetições</option>
+                 <option value="4 séries, 8 repetições" >4 séries, 8 repetições</option>
+                 <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
+                 <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
+        </select> </a>
+        <a>Costa: <select class="barra" name="perna" required>
+                 <option value="" disabled selected >Treino Costa</option>
+                 <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
+                 <option value="3 séries, 12 repetições" >3 séries, 12 repetições</option>
+                 <option value="3 séries, 15 repetições" >3 séries, 15 repetições</option>
+                 <option value="4 séries, 8 repetições" >4 séries, 8 repetições</option>
+                 <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
+                 <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
+        </select> </a>
+       <a>Glúteo: <select class="barra" name="perna" required>
+                 <option value="" disabled selected >Treino Glúteo</option>
+                 <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
+                 <option value="3 séries, 12 repetições" >3 séries, 12 repetições</option>
+                 <option value="3 séries, 15 repetições" >3 séries, 15 repetições</option>
+                 <option value="4 séries, 8 repetições" >4 séries, 8 repetições</option>
+                 <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
+                 <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
+        </select> </a>
+
+        <input type="submit" class="add" value="Adicionar">
+        <button type="submit" class="visualiza">Visualizar</button>
+
+    </div>
+
+
+
+{% endblock%}
