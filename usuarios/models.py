@@ -16,12 +16,16 @@ class Clientes(models.Model):
     def __str__(self) -> str:
         return self.nome
 
-    def clientes_exercicios(self):
-        braco = models.CharField(max_length=100)
-        perna = models.CharField(max_length=100)
-        peito = models.CharField(max_length=100)
-        costa = models.CharField(max_length=100)
-        gluteo = models.CharField(max_length=100)
-        cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+
+class clientes_exercicios(self):
+    braco = models.CharField(max_length=100)
+    perna = models.CharField(max_length=100)
+    peito = models.CharField(max_length=100)
+    costa = models.CharField(max_length=100)
+    gluteo = models.CharField(max_length=100)
+    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.cliente
 
 
