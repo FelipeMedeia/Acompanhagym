@@ -104,6 +104,19 @@ def dados_cliente(request):
                                             gluteo=gluteo)
         exer.save()
 
+
+def home_cliente(request):
+    if request.method == 'GET':
+        if len(request.session._session) == 0:
+            return redirect('/login_cliente')
+        else:
+            nome = request.session['nome']
+            context = {
+                'nome': nome
+            }
+            return render(request, 'home_cliente.html', context=context)
+
+
 def login_cliente(request):
     if request.method == 'GET':
         return render(request, 'login_cliente.html')
