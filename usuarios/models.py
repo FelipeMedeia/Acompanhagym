@@ -17,7 +17,7 @@ class Clientes(models.Model):
         return self.nome
 
 
-class clientes_exercicios(self):
+class clientes_exercicios(models.Model):
     braco = models.CharField(max_length=100)
     perna = models.CharField(max_length=100)
     peito = models.CharField(max_length=100)
