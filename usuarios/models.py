@@ -14,18 +14,19 @@ class Clientes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.nome
+        return f'{self.nome}'
 
 
-class clientes_exercicios(models.Model):
+'''class clientes_exercicios(models.Model):
     braco = models.CharField(max_length=100)
     perna = models.CharField(max_length=100)
     peito = models.CharField(max_length=100)
     costa = models.CharField(max_length=100)
     gluteo = models.CharField(max_length=100)
+    data = models.DateTimeField(default=True)
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.cliente
+        return self.cliente'''
 
 
