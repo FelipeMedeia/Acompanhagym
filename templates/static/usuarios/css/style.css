@@ -44,7 +44,8 @@ nav .logo{
     position: absolute;
     top: 20%;
     left: 10%;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    flex-direction: column;
 
     border-radius: 41px;
     border: 1px solid #DD8E15;
@@ -96,4 +97,43 @@ a {
 .adiciona:hover{
     background-color: #DD8E15;
     color: #000000;
+}
+.barra, .metria{
+    width: 200px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+
+    border-radius: 25px;
+    border: 1px solid #DD8E15;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #fff;
+    position: relative;
+    top:2px;
+    justify-content: center;
+    padding: 5px;
+}
+.metria{
+    width: 100px;
+    height: 35px;
+
+}
+
+div .block{
+    display: flex;
+    justify-content: space-around;
+    gap: 2vw;
+    padding: 0 2vw;
+    margin-block-end: 50px;
+    cursor: pointer;
+    border: 1px solid orange;
+    flex-direction: column;
+}
+div .users{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
 }
