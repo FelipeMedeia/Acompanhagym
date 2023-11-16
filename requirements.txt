@@ -1,0 +1,8 @@
+Django==3.2.20
+Pillow==9.5.0
+asgiref==3.7.2
+pip==19.0.3
+pytz==2023.3
+setuptools==40.8.0
+sqlparse==0.4.4
+typing-extensions==4.7.1
