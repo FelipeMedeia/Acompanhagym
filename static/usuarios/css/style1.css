@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.17) 40.42%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.19) 71.67%, rgba(0, 0, 0, 0.00) 100%), #808080;
+    background-blend-mode: normal, darken, normal;
+
+}
+.box{
+    width: 661px;
+    height: 461px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 41px;
+    border: 1px solid #DD8E15;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.elipse{
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 65px;
+    left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    fill: #D9D9D9;
+    background: #D9D9D9;
+    stroke-width: 1px;
+    border: 1px solid #DD8E15;
+    stroke: #DD8E15;
+    border-radius: 75px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+title{
+    color: #000;
+    padding:2px;
+    font-size: 26px;
+    text-align: center;
+    justify-content: space-around;
+
+    display: flex;
+    font-weight: 400;
+    line-height: normal;
+}
+.barra{
+    width: 400px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+
+    border-radius: 25px;
+    border: 1px solid #DD8E15;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: #fff;
+    position: relative;
+    top:35px;
+    justify-content: center;
+    padding: 5px;
+}
+.barra: hover{
+    cursor: pointer;
+    background-color: #190ADF;
+}
+
+.confirma{
+    width: 230px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    position: relative;
+    top:35px;
+    background: #190ADF;
+    color: #fff;
+}
+.confirma:hover{
+            background-color: #0190AF;
+            cursor: pointer;
+            color: white;
+}
+.alert{
+    position: absolute;
+    justify-content: space-around;
+    color: red;
+    top: 70%;
+    left: center;
+}
+
+.texto{
+    color: #000;
+    padding:2px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+
+    display: flex;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+
+
+
