@@ -121,10 +121,13 @@ def dados_cliente(request):
         cliente = Exercicios.objects.get(cliente=request.POST['identificador'])
         print('dd-c-e', cliente)
 
-        exer = Clientes.clientes_exercicios(braco=braco, perna=perna,
-                                            peito=peito, costa=costa,
-                                            gluteo=gluteo)
+        exer = Exercicios.objects.create(braco=braco, perna=perna,
+                                         peito=peito, costa=costa,
+                                         gluteo=gluteo, cliente=cliente)
         exer.save()
+    return redirect('/home')
+
+
 @login_required(login_url='../login/')
 def exercicios(request, id):
     exercicio = Exercicios.objects.filter(id=id)
