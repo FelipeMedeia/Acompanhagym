@@ -1,0 +1,26 @@
+{% extends './static/usuarios/html/base_interna.html'%}
+{% load static %}
+
+{% block content%}
+    <div class="box">
+        <h3>Detalhes do Cliente</h3>
+            <div >
+                <p class="text-center">Nome: {{cliente.nome}}</p>
+                <br>
+                <p class="text-center">Email: {{cliente.email}}</p>
+                <br>
+                <p class="text-center">Data de Nascimento: {{cliente.data_nascimento}}</p>
+                <br>
+                <p class="text-center">Endereço: {{cliente.endereco}}</p>
+                <br>
+                <p class="text-center">Peso: {{cliente.peso}}</p>
+                <br>
+                <p class="text-center">Altura: {{cliente.altura}}</p>
+                <br>
+                <button type="button" ><a href="/cadastro_cliente/?id={{ cliente.id }}">Alterar</a></button>
+                <a href="/excluir/{{cliente.id}}/">
+                    <button type="button">Excluir</button>
+                </a>
+            </div>
+    </div>
+{% endblock %}

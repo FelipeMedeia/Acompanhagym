@@ -1,37 +1,46 @@
 {% extends './static/usuarios/html/base_interna.html'%}
 {% load static %}
 
-{%block content%}
+{% block content%}
+
     <div class="box">
         <form method="POST" action="{% url 'cadastro_cliente' %}">{% csrf_token %}
-             <a> Nome: </a><input class="barra" type="text" placeholder="Digite o nome" name="nome" required>
+            <input type="number" name="id" value="{{cliente.id}}" hidden>
+            <br>
+             <a> Nome: </a><input class="barra" type="text" placeholder="Digite o nome" name="nome" value="{{cliente.nome}}" required>
             <br>
             <br>
-            <a> Email: </a><input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" required>
+            <a> Email: </a><input class="barra" type="email" placeholder="Ex.: aa@.com" name="email" value="{{cliente.email}}" required>
             <br>
             <br>
-            <a> Data de Nascimento: </a><input class="barra" type="date" name="data_nascimento" required>
+            <a> Data de Nascimento: </a><input class="barra" type="date" name="data_nascimento" value="{{cliente.data_nascimento}}" required>
             <br>
             <br>
-            <a> Endereço: </a><input class="barra" type="text" placeholder="Digite o Endereço" name="endereco" required>
+            <a> Endereço: </a><input class="barra" type="text" placeholder="Digite o Endereço" name="endereco" value="{{cliente.endereco}}" required>
             <br>
             <br>
-            <a> Peso: </a><input class="metria" type="text" placeholder="Ex.: 50.4" name="peso" required>
+            <a> Peso: </a><input class="metria" type="number" placeholder="Ex.: 50.4" name="peso" value="{{cliente.peso}}" required>
             <br>
-            <a> Altura: </a><input class="metria" type="text" placeholder="Ex.: 123" name="altura" required>
-            <br>
-            <br>
-            <button class="confirma">Cadastrar</button>
+            <a> Altura: </a><input class="metria" type="number" placeholder="Ex.: 123" name="altura" value="{{cliente.altura}}" required>
             <br>
             <br>
-            <button class="volta"><a href="{% url 'homepage'%}"> Voltar</a></button>
-            {% for message in messages%}
-                <div class="alert" >
-                    <strong >Error!</strong>{{message}}
-                </div>
-            {%endfor%}
+            {% if cliente %}
+                <a> Data de Nascimento: </a><input class="barra" type="text"value="{{cliente.data_nascimento}}">
+                <button class="confirma">Altera</button>
+                <button class="volta"><a href="{% url 'homepage' %}"> Voltar</a></button>
+            {% else %}
+                <button class="confirma">Cadastrar</button>
+                <br>
+                <br>
+                <button class="volta"><a href="{% url 'homepage' %}"> Voltar</a></button>
+            {% endif %}
 
         </form>
+        {% for message in messages%}
+            <div class="alert" >
+                <strong >Error!</strong>{{message}}
+            </div>
+        {%endfor%}
     </div>
 
 {% endblock %}
