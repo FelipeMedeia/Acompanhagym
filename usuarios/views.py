@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as login_imp, authenticate
-from .models import Clientes
 from .models import Clientes, Exercicios
 
 
@@ -65,6 +64,11 @@ def index(request):
 @login_required(login_url='/login/')
 def cadastro_cliente(request):
     if request.method == "GET":
+        cliente_id = request.GET.get('id')
+        if cliente_id:
+            cliente = Clientes.objects.get(id=cliente_id)
+            if cliente.user == request.user:
+                return render(request, 'cadastro_cliente.html', {'cliente': cliente})
         return render(request, 'cadastro_cliente.html')
     else:
         nome = request.POST.get('nome')
@@ -73,17 +77,31 @@ def cadastro_cliente(request):
         email = request.POST.get('email')
         peso = request.POST.get('peso')
         altura = request.POST.get('altura')
+        cliente_id = request.POST.get('id')
         user = request.user
+        if cliente_id:
+            cliente = Clientes.objects.get(id=cliente_id)
+            cliente.nome = nome
+            cliente.endereco = endereco
+            cliente.data_nascimento = data_nascimento
+            cliente.email = email
+            cliente.peso = peso
+            cliente.altura = altura
+            cliente.save()
 
-        cliente = Clientes.objects.filter(email=email).first()
-        if cliente:
-            messages.error(request, 'Já existe um cliente cadastrado com esse Email!!')
-            return render('cadastro_cliente.html')
+            return redirect('/home')
 
         else:
-            cliente = Clientes.objects.create(nome=nome, email=email, data_nascimento=data_nascimento,
-                                              endereco=endereco, peso=peso, altura=altura, user=user)
-            cliente.save()
+            print('2')
+            cliente = Clientes.objects.filter(email=email).first()
+            if cliente:
+                messages.error(request, 'Já existe um cliente cadastrado com esse Email!!')
+                return render(request, 'cadastro_cliente.html')
+
+            else:
+                cliente = Clientes.objects.create(nome=nome, email=email, data_nascimento=data_nascimento,
+                                                  endereco=endereco, peso=peso, altura=altura, user=user)
+                cliente.save()
 
     return redirect('/home')
 
@@ -132,11 +150,21 @@ def dados_cliente(request):
 def exercicios(request, id):
     exercicio = Exercicios.objects.filter(id=id)
     return render(request, 'exercicios.html', {'exercicio': exercicio})
+
+
+@login_required(login_url='../login/')
+def cliente_detalhe(request, id):
+    cliente = Clientes.objects.get(active=True, id=id)
+    return render(request, 'cliente.html', {'cliente': cliente})
+
+
 @login_required(login_url='../login/')
 def excluir_cliente(request, id):
     cliente = Clientes.objects.get(id=id)
     cliente.delete()
     return redirect('/home')
+
+
 @login_required(login_url='../login/')
 def excluir_exercicio(request, id):
     exercicio = Exercicios.objects.get(id=id)
@@ -166,11 +194,14 @@ def login_cliente(request):
         clientes = Clientes.objects.get(nome=request.POST['nome'])
         if clientes.email == request.POST['email']:
             request.session['nome'] = clientes.nome
+            request.session['id'] = clientes.id
             nome = request.session['nome']
+            id = request.session['id']
             context = {
-                'nome': nome
+                'nome': nome,
+                'id': id
             }
-            return redirect('/home_cliente')
+            return redirect('/home_cliente', context=context)
         else:
             messages.error(request, ' Nome ou senha inválido! '
                                     'Por favor, tente novamente.')

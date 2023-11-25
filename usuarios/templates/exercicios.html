@@ -14,15 +14,13 @@
                     <p>costa: {{e.costa}}</p>
                     <p>gluteo: {{e.gluteo}}</p>
                 </div>
+            <a href="/excluir_exercicio/{{e.id}}/">
+                    <button type="button">Excluir</button>
+                </a>
 
             {% endfor %}
         </div>
 
     </div>
-    <div>
-        <a class="saudacao">Olá {{cliente.nome}}, seja bem vindo(a)!</a>
-    </div>
-
-
 
 {% endblock%}
