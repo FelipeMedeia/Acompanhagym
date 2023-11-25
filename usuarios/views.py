@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as login_imp, authenticate
 from .models import Clientes
+from .models import Clientes, Exercicios
 
 
 # Create your views here.
@@ -87,22 +88,57 @@ def cadastro_cliente(request):
     return redirect('/home')
 
 
+@login_required(login_url='../login/')
+def dados_detalhe(request, id):
+    exercicio = Exercicios.objects.filter(cliente=id)
+    print('dd-d')
+    print(exercicio)
+    if exercicio:
+
+        return render(request, 'exercicios.html', {'exercicio': exercicio})
+
+    return render(request, 'dados_cliente.html', {'exercicio': exercicio})
+
+
 @login_required(login_url='/login/')
 def dados_cliente(request):
     if request.method == 'GET':
+        print('if, dd-c')
         return render(request, 'dados_cliente.html')
 
     else:
+        print('dados-else')
         braco = request.POST.get('braco')
+        print(braco)
         perna = request.POST.get('perna')
+        print(perna)
         peito = request.POST.get('peito')
+        print(peito)
         costa = request.POST.get('costa')
+        print(costa)
         gluteo = request.POST.get('gluteo')
+        print(gluteo)
+        cliente = Exercicios.objects.get(cliente=request.POST['identificador'])
+        print('dd-c-e', cliente)
 
         exer = Clientes.clientes_exercicios(braco=braco, perna=perna,
                                             peito=peito, costa=costa,
                                             gluteo=gluteo)
         exer.save()
+@login_required(login_url='../login/')
+def exercicios(request, id):
+    exercicio = Exercicios.objects.filter(id=id)
+    return render(request, 'exercicios.html', {'exercicio': exercicio})
+@login_required(login_url='../login/')
+def excluir_cliente(request, id):
+    cliente = Clientes.objects.get(id=id)
+    cliente.delete()
+    return redirect('/home')
+@login_required(login_url='../login/')
+def excluir_exercicio(request, id):
+    exercicio = Exercicios.objects.get(id=id)
+    exercicio.delete()
+    return redirect('/home')
 
 
 def home_cliente(request):
@@ -111,10 +147,12 @@ def home_cliente(request):
             return redirect('/login_cliente')
         else:
             nome = request.session['nome']
+            id = request.session['id']
+            exercicio = Exercicios.objects.filter(cliente=id)
             context = {
                 'nome': nome
             }
-            return render(request, 'home_cliente.html', context=context)
+            return render(request, 'home_cliente.html', {'exercicio': exercicio})
 
 
 def login_cliente(request):

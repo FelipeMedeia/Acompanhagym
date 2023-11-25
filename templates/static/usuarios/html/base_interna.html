@@ -1,15 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/usuarios/css/style.css" />
+    <link rel="stylesheet" type="text/css" href=" {% static '../static/usuarios/css/style.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-     {% load static %}
 </head>
 <body>
-
     <nav>
-        <div class="logo"> <a href="./"> <img src= "../media/logo/Ellipse 1.png " height="80" width="80"> </a> </div>
+        <div class="logo"> <a href="./"> <img src=" {% static '../media/logo/Ellipse 1.png' %} " height="80" width="80"> </a> </div>
         <div class="logout"> <a href="{% url 'logout' %}">Sair</a> </div>
     </nav>
 
