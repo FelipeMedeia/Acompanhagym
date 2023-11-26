@@ -109,39 +109,29 @@ def cadastro_cliente(request):
 @login_required(login_url='../login/')
 def dados_detalhe(request, id):
     exercicio = Exercicios.objects.filter(cliente=id)
-    print('dd-d')
-    print(exercicio)
+    cliente = Clientes.objects.filter(id=id)
     if exercicio:
-
         return render(request, 'exercicios.html', {'exercicio': exercicio})
 
-    return render(request, 'dados_cliente.html', {'exercicio': exercicio})
+    return render(request, 'dados_cliente.html', {'cliente_id': id})
 
 
 @login_required(login_url='/login/')
 def dados_cliente(request):
     if request.method == 'GET':
-        print('if, dd-c')
         return render(request, 'dados_cliente.html')
 
     else:
-        print('dados-else')
+        cliente_id = request.POST.get('cliente_id')
         braco = request.POST.get('braco')
-        print(braco)
         perna = request.POST.get('perna')
-        print(perna)
         peito = request.POST.get('peito')
-        print(peito)
         costa = request.POST.get('costa')
-        print(costa)
         gluteo = request.POST.get('gluteo')
-        print(gluteo)
-        cliente = Exercicios.objects.get(cliente=request.POST['identificador'])
-        print('dd-c-e', cliente)
 
         exer = Exercicios.objects.create(braco=braco, perna=perna,
                                          peito=peito, costa=costa,
-                                         gluteo=gluteo, cliente=cliente)
+                                         gluteo=gluteo, cliente_id=cliente_id)
         exer.save()
     return redirect('/home')
 
@@ -149,6 +139,8 @@ def dados_cliente(request):
 @login_required(login_url='../login/')
 def exercicios(request, id):
     exercicio = Exercicios.objects.filter(id=id)
+    cliente_id = request.GET.get('id')
+    print(cliente_id)
     return render(request, 'exercicios.html', {'exercicio': exercicio})
 
 
@@ -202,6 +194,13 @@ def login_cliente(request):
                 'id': id
             }
             return redirect('/home_cliente', context=context)
+        elif clientes.nome != request.POST['nome'] and clientes.email != request.POST['email']:
+            messages.error(request, ' Nome ou email inválido! '
+                                    'Por favor, tente novamente.')
+
+        elif clientes.email != request.POST['email']:
+            messages.error(request, ' Email inválido! '
+                                    'Por favor, tente novamente.')
         else:
             messages.error(request, ' Nome ou senha inválido! '
                                     'Por favor, tente novamente.')

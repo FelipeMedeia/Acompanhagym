@@ -6,7 +6,7 @@
     <div class="box">
         <button><a href="{% url 'homepage'%}">Voltar</a></button>
         <form method="POST" action="{% url 'dados_cliente' %}">{% csrf_token %}
-            <input type="text" name="identificador" value="{{cliente.id}}" hidden>
+            <input type="number" name="cliente_id" value="{{cliente_id}}" hidden>
             <a>Braço: <select class="barra" name="braco">
                      <option value="" disabled selected >Treino Braço</option>
                      <option value="3 séries, 8 repetições" >3 séries, 8 repetições</option>
@@ -61,8 +61,10 @@
                      <option value="4 séries, 12 repetições" >4 séries, 12 repetições</option>
                      <option value="4 séries, 15 repetições" >4 séries, 15 repetições</option>
             </select> </a>
-
+            <br>
+            <br>
             <input type="submit" class="add" value="Adicionar">
+            <button class="confirma">Adicionar</button>
         </form>
 
     </div>

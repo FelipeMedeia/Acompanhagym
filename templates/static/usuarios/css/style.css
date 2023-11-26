@@ -40,6 +40,7 @@ nav .logo{
     height: 461px;
     flex-shrink: 0;
     display: flex;
+    overflow:auto;
     align-items: center;
     position: absolute;
     top: 20%;
@@ -56,6 +57,7 @@ nav .logo{
 .titulo{
     flex-shrink: 0;
     position: absolute;
+    display: Block;
     top: 4%;
     left: 40%;
 
@@ -71,7 +73,6 @@ a {
     text-decoration: none;
     color: #000000;
 }
-
 .saudacao{
     text-align: center;
     color: #ffff;
