@@ -28,11 +28,11 @@ class Exercicios(models.Model):
         ("4 séries, 12 repetições", "4 séries, 12 repetições"),
         ("4 séries, 15 repetições", "4 séries, 15 repetições")
     )
-    braco = models.CharField(default=0, max_length=100, choices=EXERCICIO_CHOICES, blank=True)
-    perna = models.CharField(default=0, max_length=100, choices=EXERCICIO_CHOICES, blank=True)
-    peito = models.CharField(default=0, max_length=100, choices=EXERCICIO_CHOICES, blank=True)
-    costa = models.CharField(default=0, max_length=100, choices=EXERCICIO_CHOICES, blank=True)
-    gluteo = models.CharField(default=0, max_length=100, choices=EXERCICIO_CHOICES, blank=True)
+    braco = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    perna = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    peito = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    costa = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    gluteo = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
     data = models.DateTimeField(default=timezone.now)
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
 

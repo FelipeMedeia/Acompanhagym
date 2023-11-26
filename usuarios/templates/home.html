@@ -4,8 +4,12 @@
 {% block content%}
 
     <div class="box">
-        <a class="titulo">Lista de Alunos</a>
-        <a class="adiciona" href="{% url 'cadastro_cliente'%}"> Adicionar Novo</a>
+        <div class="tit">
+            <a class="titulo">Lista de Alunos</a>
+        </div>
+        <div class="boot">
+            <a class="adiciona" href="{% url 'cadastro_cliente'%}"> Adicionar Novo</a>
+        </div>
         <div class="users">
             {% for c in cliente %}
                 <div class="block">
