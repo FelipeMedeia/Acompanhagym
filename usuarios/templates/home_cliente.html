@@ -6,13 +6,21 @@
     <div class="box">
         <a class="titulo">Lista Atividades</a>
         <div class="atividades">
+            {% for e in exercicio %}
+                <div class="block">
+                    <p>braco: {{e.braco}}</p>
+                    <p>perna: {{e.perna}}</p>
+                    <p>peito: {{e.peito}}</p>
+                    <p>costa: {{e.costa}}</p>
+                    <p>gluteo: {{e.gluteo}}</p>
+                </div>
 
-
+            {% endfor %}
         </div>
 
     </div>
     <div>
-        <a class="saudacao">Olá {{ nome }}, seja bem vindo(a)! </a>
+        <a class="saudacao">Olá {{nome}}, seja bem vindo(a)!</a>
     </div>
 
 

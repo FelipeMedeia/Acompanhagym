@@ -40,6 +40,7 @@ nav .logo{
     height: 461px;
     flex-shrink: 0;
     display: flex;
+    overflow: auto;
     align-items: center;
     position: absolute;
     top: 20%;
@@ -56,6 +57,7 @@ nav .logo{
 .titulo{
     flex-shrink: 0;
     position: absolute;
+    display: Block;
     top: 4%;
     left: 40%;
 
@@ -71,7 +73,6 @@ a {
     text-decoration: none;
     color: #000000;
 }
-
 .saudacao{
     text-align: center;
     color: #ffff;
@@ -121,14 +122,15 @@ a {
 }
 
 div .block{
-    display: flex;
+    display: block;
     justify-content: space-around;
     gap: 2vw;
     padding: 0 2vw;
-    margin-block-end: 50px;
+    margin-block-end: 10px;
     cursor: pointer;
     border: 1px solid orange;
     flex-direction: column;
+
 }
 div .users{
     display: flex;
@@ -136,4 +138,12 @@ div .users{
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
+    overflow: auto;
+    margin-block-end: 30px;
 }
+
+div .tit{
+    padding-left: 50px;
+    padding-bottom: 70px;
+}
+

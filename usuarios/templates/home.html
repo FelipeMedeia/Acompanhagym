@@ -4,13 +4,18 @@
 {% block content%}
 
     <div class="box">
-        <a class="titulo">Lista Users</a>
-        <a class="adiciona" href="{% url 'cadastro_cliente'%}"> Adicionar Novo</a>
+        <div class="tit">
+            <a class="titulo">Lista de Alunos</a>
+            <a class="adiciona" href="{% url 'cadastro_cliente'%}"> Adicionar Novo</a>
+        </div>
         <div class="users">
             {% for c in cliente %}
                 <div class="block">
-                    <a href="{% url 'dados_cliente'%}"> <p>Nome: {{c.nome}}</p> </a>
+                    <a href="/cliente_detalhe/{{c.id}}"> <p>Nome: {{c.nome}}</p> </a>
+                    <br>
                     <p>Email: {{c.email}}</p>
+                    <br>
+                    <a href="/dados_detalhe/{{c.id}}" style="color: blue;">Exercicios</a>
                 </div>
 
             {% endfor %}

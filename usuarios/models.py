@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 # Create your models here.
+
 class Clientes(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
@@ -17,16 +19,22 @@ class Clientes(models.Model):
         return f'{self.nome}'
 
 
-'''class clientes_exercicios(models.Model):
-    braco = models.CharField(max_length=100)
-    perna = models.CharField(max_length=100)
-    peito = models.CharField(max_length=100)
-    costa = models.CharField(max_length=100)
-    gluteo = models.CharField(max_length=100)
-    data = models.DateTimeField(default=True)
+class Exercicios(models.Model):
+    EXERCICIO_CHOICES = (
+        ("3 séries, 8 repetições", "3 séries, 8 repetições"),
+        ("3 séries, 12 repetições", "3 séries, 12 repetições"),
+        ("3 séries, 15 repetições", "3 séries, 15 repetições"),
+        ("4 séries, 8 repetições", "4 séries, 8 repetições"),
+        ("4 séries, 12 repetições", "4 séries, 12 repetições"),
+        ("4 séries, 15 repetições", "4 séries, 15 repetições")
+    )
+    braco = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    perna = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    peito = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    costa = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    gluteo = models.CharField(default='-------', max_length=100, choices=EXERCICIO_CHOICES, null=True, blank=True)
+    data = models.DateTimeField(default=timezone.now)
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.cliente'''
-
-
+        return f'{self.cliente}'
