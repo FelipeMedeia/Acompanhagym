@@ -1,4 +1,4 @@
-FROM python
+FROM python:alpine
 COPY . /app/
 RUN pip install --no-cache-dir "Django>=3.0,<4"
 ENV PYTHONUNBUFFERED=1
